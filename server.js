@@ -13,6 +13,7 @@ app.use(express.static('public'));
 
 //use body parser
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 app.use(session({secret: "weather"}));
 

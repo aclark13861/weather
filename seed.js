@@ -4,7 +4,9 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/weather');
 
-function displayShelters(token) {
+let Weather = require('./models/weather');
+
+function displayWeather(token) {
 	
 	let options = {
 		url: "http://api.wunderground.com/api/e1d4afd4ba6ea0d5/conditions/q/CO/Denver.json",
@@ -13,11 +15,8 @@ function displayShelters(token) {
 	request(options, function(err, res ,body) {
 		if(err) {console.log("ERROR: " + err);}
 		let bod = JSON.parse(body);
-		let weather = bod.businesses;
-		console.log("");
-		for (i = 0; i < weather.length; i++) {
-			console.log(weather[i]);
-		}
+		let weather = bod.current_observation;
+		console.log(weather);
 		
 		Weather.remove({}, function(err) {
   			if (err) {
@@ -25,7 +24,7 @@ function displayShelters(token) {
   			}
 		});
 
-		Weather.create(shelters, function(err, docs) {
+		Weather.create(weather, function(err, docs) {
 	  		if (err) {
 	    		console.log("ERROR:", err);
 	  		} else {
@@ -36,3 +35,21 @@ function displayShelters(token) {
 		console.log("creating db");
 	});
 }
+
+function getToken() {
+	request.post({
+			url: "https://api.yelp.com/oauth2/token",
+			form: {
+				client_id: process.env.KEY_ID,
+				client_secret: process.env.KEY_SECRET,
+				grant_type: "client_credentials"
+			}
+		}, function(err, httpRespone, body) {
+			body = JSON.parse(body);
+			token = body.access_token;
+			displayWeather(token);
+			
+		});
+}
+
+getToken();

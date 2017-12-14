@@ -11,7 +11,12 @@
 	    <button type="submit" class="btn btn-default">Submit</button>
     </form>
 </div>
-<div data-id="<%=displayWeather%>" class="card-body">
+
+<%=let weather %>
+
+<div data-id="<%=weather.display_location%>" class="card-body">
   <h4 class="card-title"><%=weather.weather%></h4>
   <h6 class="card-subtitle mb-2"><%=weather.temperature_string%> <br> <%=weather.relative_humidity%> <br> <%=weather.wind_mph%> <br> <%=weather.icon%> </h6>
 </div>    
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
