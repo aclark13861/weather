@@ -17,9 +17,11 @@ function displayWeather(req, response) {
 	request(options, function(err, res ,body) {
 		if(err) {console.log("ERROR: " + err);}
 		let bod = JSON.parse(body);
-		let weather = bod.businesses;
-		response.render('page', { weather });
+		let weather = bod.current_observation;
+		response.render('index', { weather });
 	});
 }
 
-module.exports = displayWeather;
+module.exports = {
+	displayWeather: displayWeather
+};	

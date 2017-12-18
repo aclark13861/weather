@@ -23,6 +23,22 @@ app.engine('ejs', require('ejs').renderFile);
 app.set('view engine', 'ejs');
 app.use(flash());
 
+app.use(express.static(__dirname + '/public'))
+
+app.use(function(req, res, next) {
+	res.locals.currentUser = req.user;
+	next();
+});
+
+var routes = require(__dirname+'/config/routes');
+app.use(routes);
+
+function homeController(req, res) {
+	console.log("controller hit");
+	res.sendFile(__dirname + "/views/index.ejs");
+
+}
+
 //Get slash boy
 app.get('/', function homepage (req, res) {
  	res.render(__dirname + '/views/index.ejs');
