@@ -4,6 +4,7 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/weather');
 
+
 let Weather = require('./models/weather');
 
 function displayWeather(token) {

@@ -9,8 +9,8 @@ var comments = require('../controllers/commentController');
 router.route('/')
 	.get(weatherController.displayWeather);
 
-router.route('/')
-	.post(comments.saveComment);	
+router.route('/commentGrabber/:id')
+	.post(comments.saveComments);		
 
 
 module.exports = router;

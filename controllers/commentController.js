@@ -1,24 +1,32 @@
 const request = require('request');
 
-var mongoose = require('mongoose');
-var mongoDB = 'mongodb://127.0.0.1/shelters';
-mongoose.connect(mongoDB, {
-  useMongoClient: true
-});
+let Weather = require("../models/weather");
 
-let Comment = require('../models/comments');
 
-function saveComment(req, response) {
 
-	let newComment = req.query;
-	console.log(req.query);
-	comments.push(newComment);
-	console.log(comments);
-	newComment.save();
-	console.log(comments);
-	response.render("index", { comments });
+function saveComments(req, response) {
+	// console.log(req.body.comment);
+
+	Weather.find(req.params.id, function(err, shelter) {
+		
+		let newComment = req.body.comment;
+		console.log(req.body);
+		weather.comments.push(newComment);
+		console.log(shelter.comments);
+		weather.save();
+		console.log(weather);
+	});
+
+	response.send("Middle ware hit");
+	console.log(req.params);
+	
 }
 
-module.exports = {
-	saveComment: saveComment
+
+
+
+
+
+module.exports= {
+	saveComments: saveComments
 };

@@ -17,7 +17,11 @@ var Weather = new Schema({
 	temperature_string: String,
 	relative_humidity: String,
 	wind_mph: String,
-	icon: String
+	icon: String,
+	comments: {
+		author: String,
+		comment: String
+	}
 });
 
 module.exports = mongoose.model('Weather', Weather);
