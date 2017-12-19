@@ -6,8 +6,7 @@ let Weather = require("../models/weather");
 
 function saveComments(req, response) {
 	// console.log(req.body.comment);
-
-	Weather.find(req.params.id, function(err, shelter) {
+	Weather.findById(req.params.id, function(err, weather) {
 		
 		let newComment = req.body.comment;
 		console.log(req.body);
@@ -21,11 +20,6 @@ function saveComments(req, response) {
 	console.log(req.params);
 	
 }
-
-
-
-
-
 
 module.exports= {
 	saveComments: saveComments
