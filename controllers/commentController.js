@@ -11,8 +11,8 @@ function saveComments(req, response) {
 		let newComment = req.body.comment;
 		console.log(req.body);
 		weather.comments.push(newComment);
-		console.log(shelter.comments);
-		weather.save();
+		console.log(weather.comments);
+		Weather.save();
 		console.log(weather);
 	});
 
