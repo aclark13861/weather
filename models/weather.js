@@ -1,6 +1,8 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
+var Comment = require('./comments');
+
 var Weather = new Schema({
 	current_observation: {
 		image: {
@@ -18,10 +20,7 @@ var Weather = new Schema({
 	relative_humidity: String,
 	wind_mph: String,
 	icon: String,
-	comments: {
-		author: String,
-		comment: String
-	}
+	comments: [Comment.schema]
 });
 
 module.exports = mongoose.model('Weather', Weather);

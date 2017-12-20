@@ -6,19 +6,18 @@ let Weather = require("../models/weather");
 
 function saveComments(req, response) {
 	// console.log(req.body.comment);
-	Weather.findById(req.params.id, function(err, weather) {
+	Weather.find(req.body, function(err, weather) {
 		
-		let newComment = req.body.comment;
+		let newComment = req.body;
 		console.log(req.body);
 		weather.comments.push(newComment);
 		console.log(weather.comments);
-		Weather.save();
+		weather.save();
 		console.log(weather);
 	});
 
 	response.send("Middle ware hit");
 	console.log(req.params);
-	
 }
 
 module.exports= {
