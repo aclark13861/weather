@@ -23,11 +23,10 @@ function displayWeather(req, response) {
 }
 
 function saveComments(req,response) {
-	Weather.find(req.body, function(err, weather) {
-		let newComment = req.body.comment;
-		console.log(req.title);
-		weather.comments.push(newComment);
-		console.log(weather.comments);
+	Weather.find({}, function(err, weather) {
+		let newComment = req.body.title;
+		console.log(req.body.title);
+		Weather.Comment.push(newComment);
 		weather.save();
 		console.log(weather);
 	});

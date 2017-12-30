@@ -10,8 +10,8 @@ router.route('/')
 	.get(weatherController.displayWeather);
 	
 
-router.route('/commentGrabber')
-	.get(weatherController.saveComments);
+router.route('/commentGrabber/:id')
+	.post(weatherController.saveComments);
 
 	//.put(commentController.saveComments);		
 

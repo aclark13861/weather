@@ -8,7 +8,7 @@
   	<br> 
   	<br>
   	Humidity: <%=weather.relative_humidity%> 
-  	<button class="btn btn-danger" value="delete">delete</button> 
+  	<button class="btn btn-danger" value="delete" method="delete">delete</button> 
   	<br> 
   	<br>
   	Wind mph: <%=weather.wind_mph%> 
@@ -21,7 +21,7 @@
 </div>    
 
 <div id="form" class="col-md-5">
-	<form data-id="<%=weather.comments%> method="POST" action="/commentGrabber" class="form-inline" id="newCommentForm">
+	<form data-id="<%=weather.Comment%>" method="POST" action="commentGrabber" id="newCommentForm">
 	    <div id="comment" class="form-group">
 	      <label for="title">Enter a comment!:</label>
 	      <input type="text" class="form-control" name="title" placeholder="Comment">
@@ -34,21 +34,25 @@
     </form>
 </div>
 
-<script> 
-var form = $('#newCommentForm');
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+	var form = $('#newCommentForm');
 
- 	$("form").on("submit", function(event) {
-         event.preventDefault();
-          
-         var formData = $(this).serialize();
-          console.log(formData);
-          console.log($(this).attr("data-id"));
-          
+	 	$("form").on("submit", function(event) {
+	         event.preventDefault();
+	          
+	         var formData = $(this).serialize();
+	          console.log(formData);
+	          console.log($(this).attr("data-id"));
+	          
 
-          console.log($("input[name=title]").val());
+	          console.log($("input[name=title]").val());
+	          console.log($("input[name=author]").val());
+	          var comment = $("input[name=title]").val();
+	          var author = $("input[name=author]").val();
 
-       $.post('/commentGrabber/', formData).done(function(responseData) {
-            console.log(responseData);
-       });  
-
-</script>       
+	       $.post('/commentGrabber/', comment, author).done(function(responseData) {
+	            console.log(responseData);
+	       });
+	    }); 
+</script>	          
