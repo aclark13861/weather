@@ -23,14 +23,23 @@ function displayWeather(req, response) {
 }
 
 function saveComments(req,response) {
-	Weather.find({}, req.body.title, function(err, weather) {
+	Weather.find({}, function(err, weather) {
 		let newComment = req.body.title;
-		console.log(req.body.title);
-
 		weather.comments.push(newComment);
-		weather.save();
-		console.log(weather);
+		Weather.save();
+		response.render('index', { weather });
+
 	});
+
+
+	//Weather.update(req.body.title, function(err, weather) {
+	//	let newComment = req.body.title;
+	//	console.log(req.body.title);
+
+	//	weather.comments.push(newComment);
+	//	Weather.save();
+	//	console.log(weather);
+	//});
 	response.send("middle ware hit");
 }
 
