@@ -1,9 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Bungee');
+
+body {
+	background: #c8cec6;
+	font-family: 'Bungee', sans-serif;
+}
+
+
+
+#form {
+	background: #90a99b;
+}
+
 #navvy {
+
 	display: inline;
 	text-align: center;
 }
 
 #weather {
+	background: #666a68;
+	color: white;
 	text-align: center;
 	float: left;
 }
@@ -12,6 +28,11 @@
 	float: right;
 	text-align: center;
 }	
+
+h1 {
+	background: #989e9a;
+	color: black;
+}
 
 #comment, #name {
 	margin: 5px;

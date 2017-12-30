@@ -20,7 +20,7 @@ var Weather = new Schema({
 	relative_humidity: String,
 	wind_mph: String,
 	icon: String,
-	comments: [Comment.schema]
+	Comment: [Comment.schema]
 });
 
 module.exports = mongoose.model('Weather', Weather);

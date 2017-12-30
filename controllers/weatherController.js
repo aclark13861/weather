@@ -1,7 +1,7 @@
 const request = require('request');
 
 var mongoose = require('mongoose');
-var mongoDB = 'mongodb://127.0.0.1/shelters';
+var mongoDB = 'mongodb://127.0.0.1/weather';
 mongoose.connect(mongoDB, {
   useMongoClient: true
 });
@@ -22,6 +22,21 @@ function displayWeather(req, response) {
 	});
 }
 
+function saveComments(req,response) {
+	Weather.find(req.body, function(err, weather) {
+		let newComment = req.body.comment;
+		console.log(req.title);
+		weather.comments.push(newComment);
+		console.log(weather.comments);
+		weather.save();
+		console.log(weather);
+	});
+	console.log(req.body);
+}
+
+
+
 module.exports = {
-	displayWeather: displayWeather
-};	
+	displayWeather: displayWeather,
+	saveComments: saveComments
+};

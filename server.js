@@ -5,6 +5,11 @@ var flash = require('flash');
 var session = require('express-session');
 const path = require('path');
 
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/weather');
+
+
+
 //Using express calling it app
 var app = express();
 
@@ -38,6 +43,13 @@ function homeController(req, res) {
 	res.sendFile(__dirname + "/views/index.ejs");
 
 }
+
+app.post('/commentGrabber', function(req, res) {
+	mongoose.then(function(db) {
+		db.collection('comments').insertOne(req.body);
+	});
+	res.send('Data received:\n' + JSON.stringify(req.body));
+});
 
 //Get slash boy
 app.get('/', function homepage (req, res) {

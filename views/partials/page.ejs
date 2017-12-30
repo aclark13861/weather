@@ -1,10 +1,10 @@
 <div id="weather" data-id="<%=weather.display_location%>" class="col-md-5">
-	<h1><%=weather.display_location.full%></h1>
-	<h3><%=weather.display_location.elevation%> ft. above sea level</h3>
+	<h1>Denver</h1>
+	
   <h4 class="card-title">Conditions: <%=weather.weather%></h4>
 
   <h6 class="card-subtitle mb-2">Temperature: <%=weather.temperature_string%> 
-  	<button class="btn btn-danger" value="delete">delete</button> 
+  	<button class="btn btn-danger" value="delete" action="delete">delete</button> 
   	<br> 
   	<br>
   	Humidity: <%=weather.relative_humidity%> 
@@ -21,23 +21,34 @@
 </div>    
 
 <div id="form" class="col-md-5">
-
-	<form data-id="<%=weather.comments%> method="POST" action="/commentGrabber" class="form-inline" id="newBookForm">
+	<form data-id="<%=weather.comments%> method="POST" action="/commentGrabber" class="form-inline" id="newCommentForm">
 	    <div id="comment" class="form-group">
-	      <label for="title">Enter a comment!</label>
+	      <label for="title">Enter a comment!:</label>
 	      <input type="text" class="form-control" name="title" placeholder="Comment">
 	    </div>
 	    <div id="name" class="form-group">
-	      <label for="title">Name</label>
+	      <label for="title">Name:</label>
 	      <input type="text" class="form-control" name="author" placeholder="Name">
 	    </div>
 	    <button type="submit" value="Post" class="btn btn-success">Submit</button>
     </form>
-
-    
-
 </div>
 
-<div id="comments">
+<script> 
+var form = $('#newCommentForm');
 
- </div>
+ 	$("form").on("submit", function(event) {
+         event.preventDefault();
+          
+         var formData = $(this).serialize();
+          console.log(formData);
+          console.log($(this).attr("data-id"));
+          
+
+          console.log($("input[name=title]").val());
+
+       $.post('/commentGrabber/', formData).done(function(responseData) {
+            console.log(responseData);
+       });  
+
+</script>       
