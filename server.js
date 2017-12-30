@@ -44,12 +44,6 @@ function homeController(req, res) {
 
 }
 
-app.post('/commentGrabber', function(req, res) {
-	mongoose.then(function(db) {
-		db.collection('comments').insertOne(req.body);
-	});
-	res.send('Data received:\n' + JSON.stringify(req.body));
-});
 
 //Get slash boy
 app.get('/', function homepage (req, res) {

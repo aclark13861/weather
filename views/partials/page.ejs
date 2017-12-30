@@ -21,18 +21,22 @@
 </div>    
 
 <div id="form" class="col-md-5">
-	<form data-id="<%=weather.Comment%>" method="POST" action="commentGrabber" id="newCommentForm">
+	<form data-id="<%=weather.comments%>" method="POST" action="commentGrabber" id="newCommentForm">
 	    <div id="comment" class="form-group">
 	      <label for="title">Enter a comment!:</label>
 	      <input type="text" class="form-control" name="title" placeholder="Comment">
 	    </div>
-	    <div id="name" class="form-group">
-	      <label for="title">Name:</label>
-	      <input type="text" class="form-control" name="author" placeholder="Name">
-	    </div>
 	    <button type="submit" value="Post" class="btn btn-success">Submit</button>
     </form>
 </div>
+
+<div id="comments" class="col-md-5">
+	<h3>Comments:</h3>
+	<p> <%=weather.comments%> </p>
+
+</div>	
+
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
@@ -47,11 +51,10 @@
 	          
 
 	          console.log($("input[name=title]").val());
-	          console.log($("input[name=author]").val());
+	        
 	          var comment = $("input[name=title]").val();
-	          var author = $("input[name=author]").val();
 
-	       $.post('/commentGrabber/', comment, author).done(function(responseData) {
+	       $.post('/commentGrabber/:id', comment).done(function(responseData) {
 	            console.log(responseData);
 	       });
 	    }); 

@@ -2,7 +2,7 @@ const request = require('request');
 require('dotenv').config();
 
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/weather');
+mongoose.connect('mongodb://localhost:27017/weather');
 
 
 let Weather = require('./models/weather');
