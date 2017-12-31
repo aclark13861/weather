@@ -13,7 +13,7 @@ body {
 
 #navvy {
 
-	display: inline;
+	display: inline-block;
 	text-align: center;
 }
 
