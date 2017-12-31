@@ -8,7 +8,7 @@ const path = require('path');
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://heroku_sz82z631:f16s2jen6rmoltuqm5ntv4m66c@ds135747.mlab.com:35747/heroku_sz82z631');
 
-
+var weather = require('./models/weather');
 
 //Using express calling it app
 var app = express();
@@ -51,7 +51,15 @@ app.get('/', function homepage (req, res) {
 
  });
 
-app.post('/commentGrabber')
+//post new comment
+app.post('/commentGrabber', function(req, res) {
+	new weather({
+		comments: req.body.title
+	}).save(function(err, doc) {
+		if (err) res.json(err);
+		else  res.send('Comment saved to db');
+	});
+});
 
 //Port 3000
 app.listen(process.env.PORT || 3000, function () {
