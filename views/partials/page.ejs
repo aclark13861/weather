@@ -3,21 +3,25 @@
 	
   <h4 class="card-title">Conditions: <%=weather.weather%></h4>
 
-  <h6 class="card-subtitle mb-2">Temperature: <%=weather.temperature_string%> 
-  	<button class="btn btn-danger" value="delete" action="delete">delete</button> 
-  	<br> 
-  	<br>
-  	Humidity: <%=weather.relative_humidity%> 
-  	<button class="btn btn-danger" value="delete" method="delete">delete</button> 
-  	<br> 
-  	<br>
-  	Wind mph: <%=weather.wind_mph%> 
-  	<button class="btn btn-danger" value="delete">delete</button> 
-  	<br>
-  	<br>
-  	<%=weather.icon%> 
-  	<button class="btn btn-danger" value="delete">delete</button>
-  	</h6>
+  <ul>
+
+  <li class="removable"><h6 class="card-subtitle mb-2">Temperature: <%=weather.temperature_string%></h6> 
+  	<button id="delete1" class="btn btn-danger" value="delete" action="/delete">delete</button> 
+  </li>
+  	
+
+  <li class="removable">
+  	<h6>Humidity: <%=weather.relative_humidity%></h6> 
+  	<button id="delete2" class="btn btn-danger" value="delete" method="delete">delete</button> 
+  </li>
+  <li class="removable">
+  	<h6>Wind mph: <%=weather.wind_mph%> </h6>
+  	<button id="delete3" class="btn btn-danger" value="delete">delete</button> 
+  </li>
+  <li class="removable">	
+  	<h6><%=weather.icon%> </h6>
+  	<button id="delete4" class="btn btn-danger" value="delete">delete</button>
+  </li>	
 </div>    
 
 <div id="form" class="col-md-5">
@@ -32,11 +36,6 @@
 
 <div id="comments" class="col-md-5">
 	<h3>Comments:</h3>
-	 <%for (let index = 0; index < weather.comments.length; index++) { %>
-	   <ul>
-	     <li><%=weather.comments[index]%></li>
-	   </ul> 
-	<% } %>
 
 </div>	
 
@@ -44,6 +43,25 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
+$(document).ready(function() {
+
+	$('#delete1').click(function() {
+		$(this).parent().remove();
+	});
+
+	$('#delete2').click(function() {
+		$(this).parent().remove();
+	});
+
+	$('#delete3').click(function() {
+		$(this).parent().remove();
+	});
+
+	$('#delete4').click(function() {
+		$(this).parent().remove();
+	});
+
+});
 	var form = $('#newCommentForm');
 
 	 	$("form").on("submit", function(event) {
@@ -61,5 +79,7 @@
 	       $.post('/commentGrabber/:id', comment).done(function(responseData) {
 	            console.log(responseData);
 	       });
+
+
 	    }); 
 </script>	          

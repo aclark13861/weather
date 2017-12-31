@@ -6,7 +6,7 @@ mongoose.connect(mongoDB, {
   useMongoClient: true
 });
 
-let Weather = require('../seed.js');
+let Weather = require('../models/weather');
 
 function displayWeather(req, response) {
 	// console.log(req.token);
@@ -23,27 +23,16 @@ function displayWeather(req, response) {
 }
 
 function saveComments(req,response) {
-	Weather.find({}, function(err, weather) {
+	Weather.find(req.body.title, function(err, weather) {
 		let newComment = req.body.title;
+		console.log(req.body.title);
+
 		weather.comments.push(newComment);
 		Weather.save();
-		response.render('index', { weather });
-
+		console.log(weather);
 	});
-
-
-	//Weather.update(req.body.title, function(err, weather) {
-	//	let newComment = req.body.title;
-	//	console.log(req.body.title);
-
-	//	weather.comments.push(newComment);
-	//	Weather.save();
-	//	console.log(weather);
-	//});
 	response.send("middle ware hit");
 }
-
-
 
 module.exports = {
 	displayWeather: displayWeather,

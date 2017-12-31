@@ -28,7 +28,7 @@ app.engine('ejs', require('ejs').renderFile);
 app.set('view engine', 'ejs');
 app.use(flash());
 
-app.use(express.static(__dirname + '/public'))
+app.use(express.static(__dirname + '/public'));
 
 app.use(function(req, res, next) {
 	res.locals.currentUser = req.user;
@@ -50,6 +50,8 @@ app.get('/', function homepage (req, res) {
  	res.render(__dirname + '/views/index.ejs');
 
  });
+
+app.post('/commentGrabber')
 
 //Port 3000
 app.listen(process.env.PORT || 3000, function () {

@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var Weather = new Schema({
+var WeatherSchema = new Schema({
 	current_observation: {
 		image: {
 			url: String,
@@ -21,4 +21,4 @@ var Weather = new Schema({
 	comments: [String]
 });
 
-module.exports = mongoose.model('Weather', Weather);
+module.exports = mongoose.model('Weather', WeatherSchema);

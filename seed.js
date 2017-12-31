@@ -55,4 +55,5 @@ function getToken() {
 
 getToken();
 
+
 module.exports = Weather;
