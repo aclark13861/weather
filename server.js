@@ -45,7 +45,7 @@ function homeController(req, res) {
 }
 
 
-//Get slash boy
+//Get slash 
 app.get('/', function homepage (req, res) {
  	res.render(__dirname + '/views/index.ejs');
 

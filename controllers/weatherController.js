@@ -1,7 +1,7 @@
 const request = require('request');
 
 var mongoose = require('mongoose');
-var mongoDB = 'mongodb://127.0.0.1/weather';
+var mongoDB = 'mongodb://heroku_sz82z631:f16s2jen6rmoltuqm5ntv4m66c@ds135747.mlab.com:35747/heroku_sz82z631';
 mongoose.connect(mongoDB, {
   useMongoClient: true
 });
@@ -23,12 +23,12 @@ function displayWeather(req, response) {
 }
 
 function saveComments(req,response) {
-	Weather.find(req.body.title, function(err, weather) {
-		let newComment = req.body.title;
-		console.log(req.body.title);
+	Weather.find(req.body, function(err, weather) {
+		let newComment = req.body;
+		console.log(req.body);
 
 		weather.comments.push(newComment);
-		Weather.save();
+		weather.save();
 		console.log(weather);
 	});
 	response.send("middle ware hit");
