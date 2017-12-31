@@ -6,7 +6,7 @@ var session = require('express-session');
 const path = require('path');
 
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/weather');
+mongoose.connect('mongodb://heroku_sz82z631:f16s2jen6rmoltuqm5ntv4m66c@ds135747.mlab.com:35747/heroku_sz82z631');
 
 
 
