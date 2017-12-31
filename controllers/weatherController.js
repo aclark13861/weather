@@ -27,8 +27,8 @@ function saveComments(req,response) {
 		let newComment = req.body;
 		console.log(req.body);
 
-		weather.comments.push(newComment);
-		weather.save();
+		comments.push(newComment);
+		comments.save();
 		console.log(weather);
 	});
 	response.send("middle ware hit");
