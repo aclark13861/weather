@@ -61,4 +61,10 @@ h6 {
 	color: white;
 	font-family: 'Bungee';
 	background: #666a68;
+	font-size: 20px;
+	list-style-type: none;
+	border: solid white 1px;
+	margin: 7px;
+	padding: 5px;
+	text-align: center;
 }
