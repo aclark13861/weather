@@ -28,7 +28,7 @@
 	<form data-id="<%=weather.comments%>" method="POST" action="commentGrabber" id="newCommentForm">
 	    <div id="comment" class="form-group">
 	      <label for="title">Enter a comment!:</label>
-	      <input type="text" class="form-control" name="title" placeholder="Comment">
+	      <input id="commentBox" type="text" class="form-control" name="title" placeholder="Comment">
 	    </div>
 	    <button id="submit-btn" type="submit" value="Post" class="btn btn-success">Submit</button>
     </form>
@@ -66,7 +66,7 @@ $(document).ready(function() {
 	});
 
 	$('#submit-btn').click(function() {
-		$('#commentList').child().appendTo();
+		$('#commentList').append('<li>'+'#commentBox.val()'+'</li>');
 	})
 
 });
