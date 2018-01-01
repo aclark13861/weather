@@ -36,10 +36,11 @@
 
 <div id="comments" class="col-md-5">
 	<h3>Comments:</h3>
-		<ul id="commentList">
-		  
-		</ul> 
-
+	 <%for (let i = 0; i < weather.comments.length; i++) { %>
+	   <ul>
+	     <li><%=weather.comments[i]%></li>
+	   </ul> 
+	<% } %>
 
 </div>	
 
