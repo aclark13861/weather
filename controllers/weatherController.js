@@ -23,12 +23,12 @@ function displayWeather(req, response) {
 }
 
 function saveComments(req,response) {
-	Weather.find({}, req.params.id, function(err, weathers) {
+	Weather.find(req.params.id, function(err, weather) {
 		let newComment = req.body;
 		console.log(req.body);
 
-		weathers.comments.push(newComment);
-		weathers.save();
+		weather.comments.push(newComment);
+		weather.save();
 		console.log(weather);
 	});
 	response.send('Middle ware hit');
