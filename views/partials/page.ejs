@@ -49,6 +49,8 @@
 <script>
 $(document).ready(function() {
 
+	var comment = $('#commentBox').val();
+
 	$('#delete1').click(function() {
 		$(this).parent().remove();
 	});
@@ -66,7 +68,7 @@ $(document).ready(function() {
 	});
 
 	$('#submit-btn').click(function() {
-		$('#commentList').append('<li>'+'comment'+'</li>');
+		$('#commentList').append('<li>'+comment+'</li>');
 	})
 
 });
