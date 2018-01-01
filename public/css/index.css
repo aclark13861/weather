@@ -43,10 +43,7 @@ h1 {
 	float: right;
 }
 
-#comments-ul {
-	color: white;
-	font-family: 'Bungee';
-}
+
 
 li {
 	font-family: sans-serif;
@@ -60,4 +57,10 @@ li {
 
 h6 {
 	font-size: 40px;
+}
+
+#comments-ul {
+	color: white;
+	font-family: 'Bungee';
+	background: #666a68;
 }
