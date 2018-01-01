@@ -11,7 +11,8 @@ router.route('/')
 	.get(weatherController.displayWeather);
 
 router.route('/comments')
-	.get(commentController.saveComments);	
+	.get(commentController.saveComments)
+	.post(commentController.saveComments);	
 	
 
 router.route('/commentGrabber/:id')
