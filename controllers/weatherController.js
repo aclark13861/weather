@@ -20,7 +20,10 @@ function displayWeather(req, response) {
 		let weather = bod.current_observation;
 		response.render('index', { weather });
 	});
-	function saveComments(req,response) {
+
+}
+
+function saveComments(req,response) {
 	Weather.find(req.params.id, function(err, weather) {
 		let comment = JSON.parse(body);
 		let newComment = req.body;
@@ -32,9 +35,6 @@ function displayWeather(req, response) {
 	});
 	response.send('Middle ware hit');
 }
-}
-
-
 
 
 module.exports = {
