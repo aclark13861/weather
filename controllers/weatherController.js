@@ -23,7 +23,7 @@ function displayWeather(req, response) {
 }
 
 function saveComments(req,response) {
-	mongoDB.find({}, req.params.id, function(err, weathers) {
+	Weather.find({}, req.params.id, function(err, weathers) {
 		let newComment = req.body;
 		console.log(req.body);
 
@@ -31,7 +31,7 @@ function saveComments(req,response) {
 		weathers.save();
 		console.log(weather);
 	});
-	response.render('index', { weathers });
+	response.send('Middle ware hit');
 }
 
 module.exports = {
