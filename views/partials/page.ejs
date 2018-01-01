@@ -30,17 +30,16 @@
 	      <label for="title">Enter a comment!:</label>
 	      <input type="text" class="form-control" name="title" placeholder="Comment">
 	    </div>
-	    <button type="submit" value="Post" class="btn btn-success">Submit</button>
+	    <button id="submit-btn" type="submit" value="Post" class="btn btn-success">Submit</button>
     </form>
 </div>
 
 <div id="comments" class="col-md-5">
 	<h3>Comments:</h3>
-		 <%for (let index = 0; index < comments.length; index++) { %>
-		   <ul>
-		     <li><%=comments[index]%></li>
-		   </ul> 
-		<% } %>
+		<ul id="commentList">
+		  <li></li>
+		</ul> 
+
 
 </div>	
 
@@ -65,6 +64,10 @@ $(document).ready(function() {
 	$('#delete4').click(function() {
 		$(this).parent().remove();
 	});
+
+	$('#submit-btn').click(function() {
+		$('#commentList').appendChild();
+	})
 
 });
 	var form = $('#newCommentForm');
