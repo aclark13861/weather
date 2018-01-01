@@ -81,7 +81,7 @@ $(document).ready(function() {
 	          var comment = $("input[name=title]").val();
 	        $.ajax({
 	        	type: "POST",
-	        	url: "https://q-weather.herokuapp.com/commentGrabber",
+	        	url: "https://www.mlab.com/databases/heroku_sz82z631/collections/comments",
 	        	data: String,
 	        	success: function(){$(this).dialog( "close" );},
 
