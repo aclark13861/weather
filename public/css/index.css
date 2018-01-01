@@ -43,6 +43,11 @@ h1 {
 	float: right;
 }
 
+#comments-ul {
+	color: white;
+	font-family: 'Bungee';
+}
+
 li {
 	font-family: sans-serif;
 	font-size: 30px;
