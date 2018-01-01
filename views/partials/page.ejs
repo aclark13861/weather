@@ -5,20 +5,20 @@
 
   <ul>
 
-  <li class="removable"><h6 class="card-subtitle mb-2">Temperature: <%=weather.temperature_string%></h6> 
+  <li id="weth-1" class="removable"><h6 class="card-subtitle mb-2">Temperature: <%=weather.temperature_string%></h6> 
   	<button id="delete1" class="btn btn-danger" value="delete" action="/delete">delete</button> 
   </li>
   	
 
-  <li class="removable">
+  <li id="weth-2" class="removable">
   	<h6>Humidity: <%=weather.relative_humidity%></h6> 
   	<button id="delete2" class="btn btn-danger" value="delete" method="delete">delete</button> 
   </li>
-  <li class="removable">
+  <li id="weth-3" class="removable">
   	<h6>Wind mph: <%=weather.wind_mph%> </h6>
   	<button id="delete3" class="btn btn-danger" value="delete">delete</button> 
   </li>
-  <li class="removable">	
+  <li id="weth-4" class="removable">	
   	<h6><%=weather.icon%> </h6>
   	<button id="delete4" class="btn btn-danger" value="delete">delete</button>
   </li>	
@@ -38,8 +38,8 @@
 	<h3>Comments:</h3>
 	 
 	   <ul id="comments-ul">
-	     <li>first comment!</li>
-	     <li>second comment!</li>
+	     <li class="comment-list">first comment!</li>
+	     <li class="comment-list">second comment!</li>
 	   </ul> 
 	
 
