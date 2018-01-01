@@ -67,14 +67,10 @@ $(document).ready(function() {
 		$(this).parent().remove();
 	});
 
-	$('#submit-btn').click(function() {
-		$('#commentList').append('<li>'+comment+'</li>');
-	})
 
-});
 	var form = $('#newCommentForm');
 
-	 	$("form").on("submit", function(event) {
+	 	$(form).on("submit", function(event) {
 	         event.preventDefault();
 	          
 	         var formData = $(this).serialize();
@@ -85,11 +81,17 @@ $(document).ready(function() {
 	          console.log($("input[name=title]").val());
 	        
 	          var comment = $("input[name=title]").val();
+	        $.ajax({
+	        	type: "POST",
+	        	url: "mongodb://heroku_sz82z631:f16s2jen6rmoltuqm5ntv4m66c@ds135747.mlab.com:35747/heroku_sz82z631",
+	        	data: String,
+	        	success: function(){$(this).dialog( "close" );},
 
-	       $.post('/commentGrabber/:id', comment).done(function(responseData) {
-	            console.log(responseData);
-	       });
+	        });
+
+	        return false;  
 
 
-	    }); 
+	    });
+});
 </script>	          
