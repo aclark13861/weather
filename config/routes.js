@@ -9,6 +9,9 @@ var commentController = require('../controllers/commentController');
 
 router.route('/')
 	.get(weatherController.displayWeather);
+
+router.route('/comments')
+	.get(commentController.saveComments);	
 	
 
 router.route('/commentGrabber/:id')
