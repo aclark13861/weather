@@ -12,12 +12,7 @@ router.route('/')
 
 router.route('/comments')
 	.post(weatherController.saveComments);	
-	
-
-router.route('/commentGrabber/:id')
-	.post(commentController.saveComments);
-
-	//.put(commentController.saveComments);		
+			
 
 
 module.exports = router;

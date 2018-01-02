@@ -1,27 +1,28 @@
 const request = require('request');
 
 var mongoose = require('mongoose');
-var mongoDB = 'mongodb://127.0.0.1/weather';
+var mongoDB = 'mongodb://heroku_sz82z631:f16s2jen6rmoltuqm5ntv4m66c@ds135747.mlab.com:35747/heroku_sz82z631';
 mongoose.connect(mongoDB, {
   useMongoClient: true
 });
 
-let Weather = require("../seed.js");
+let Weather = require("../models/weather");
 
 function saveComments(req, response) {
-	let weather = require('../models/weather');
+	var myData = req.body.comment;
 
-	Weather.find({}, req.title, function(err, weather) {
-		let newComment = req.title;
-		console.log(req.body.title);
-		weather.comments.push(newComment);
-		console.log(weather.comments);
-		weather.save();
-		console.log(weather);
+	Weather.find({}, function(err, docs) {
+		console.log(docs[0]);
+		console.log(docs[0].comments);
+		console.log(docs[0].weather);
+		docs[0].comments.push(myData);
+		docs[0].save();
+		console.log(docs[0].comments);
+		console.log(docs);
+		
 	});
+	response.send('middle ware hit');
 
-	console.log(req.title);
-	response.send(req.body);
 }
 
 module.exports = {

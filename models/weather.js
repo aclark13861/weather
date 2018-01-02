@@ -1,7 +1,12 @@
 var mongoose = require('mongoose');
+var mongoDB = 'mongodb://heroku_sz82z631:f16s2jen6rmoltuqm5ntv4m66c@ds135747.mlab.com:35747/heroku_sz82z631';
+mongoose.connect(mongoDB, {
+  useMongoClient: true
+});
+
 var Schema = mongoose.Schema;
 
-var WeatherSchema = new Schema({
+var Weather = new Schema({
 	current_observation: {
 		image: {
 			url: String,
@@ -21,4 +26,4 @@ var WeatherSchema = new Schema({
 	comments: [String]
 });
 
-module.exports = mongoose.model('Weather', WeatherSchema);
+module.exports = mongoose.model('Weather', Weather);
