@@ -11,7 +11,6 @@ router.route('/')
 	.get(weatherController.displayWeather);
 
 router.route('/comments')
-	.get(weatherController.saveComments)
 	.post(weatherController.saveComments);	
 	
 
