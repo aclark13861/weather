@@ -30,7 +30,9 @@ function saveComments(req,response) {
 			if (error) throw error;
 			console.log("data saved");
 		});
-	}	
+	}
+
+	response.send("middle ware hit");	
 }
 
 
