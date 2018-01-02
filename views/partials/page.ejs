@@ -90,7 +90,7 @@ var input = $('#commentBox').val();
 		        $.ajax({
 		        	type: "POST",
 		        	url: '/comments',
-		        	data: { input }
+		        	data: String
 
 		        });
 		        
