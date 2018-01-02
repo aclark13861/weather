@@ -52,7 +52,7 @@ app.get('/', function homepage (req, res) {
  });
 
 //post new comment
-app.post('/commentGrabber', function(req, res) {
+app.post('/comments', function(req, res) {
 	new weather({
 		comments: req.body.title
 	}).save(function(err, doc) {
