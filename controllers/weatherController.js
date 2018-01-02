@@ -26,13 +26,15 @@ function displayWeather(req, response) {
 function saveComments(req,response) {
 
 	function writeData(data) {
-		mongoDB.collection('weathers.comments').insert(data, function(error, record) {
+		mongoDB.collection('weathers').insert(data, function(error, record) {
 			if (error) throw error;
 			console.log("data saved");
 		});
 	}
 
 	response.send("middle ware hit");	
+
+	writeData();
 }
 
 
