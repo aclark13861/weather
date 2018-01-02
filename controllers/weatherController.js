@@ -44,6 +44,8 @@ function saveComments(req,response) {
 	//}	
 	console.log("save comments firing");
 
+	response.render(json);
+
 		
 }
 
