@@ -25,7 +25,7 @@
 </div>    
 
 <div id="form" class="col-md-5">
-	<form data-id="<%=weather.comments%>" method="POST" action="comments" id="newCommentForm">
+	<form data-id="<%=comments%>" method="POST" action="comments" id="newCommentForm">
 	    <div id="comment" class="form-group">
 	      <label for="comment">Enter a comment!:</label>
 	      <input id="commentBox" type="text" class="form-control" name="comment" placeholder="Comment">
@@ -36,6 +36,11 @@
 
 <div id="comments" class="col-md-5">
 	<h3>Comments:</h3>
+		 <%for (let i = 0; i < comments.length; i++) { %>
+		   <ul>
+		     <li><%=comments[i]%></li>
+		   </ul> 
+		<% } %>
 		
 	 
 	  
