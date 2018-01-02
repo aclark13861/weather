@@ -24,10 +24,13 @@ function displayWeather(req, response) {
 }
 
 function saveComments(req,response) {
-	db.collection('weathers').insert(data, function(error, record) {
-		if (error) throw error;
-		console.log("data saved");
-	});
+
+	function writeData(data) {
+		mongoDB.collection('weathers').insert(data, function(error, record) {
+			if (error) throw error;
+			console.log("data saved");
+		});
+	}	
 }
 
 
