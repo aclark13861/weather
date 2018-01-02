@@ -28,12 +28,12 @@ function saveComments(req,response) {
 	var myData = req.body;
 	console.log(req.body);
 
-	
+	function writeData(myData) {
 	mongoDB.collection('weathers').insert(myData, function(error, record) {
 		if (error) throw error;
 		console.log("data saved");
 	});
-
+	}	
 	response.send("middle ware hit");
 
 		
