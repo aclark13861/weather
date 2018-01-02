@@ -24,7 +24,7 @@ function displayWeather(req, response) {
 }
 
 function saveComments(req,response) {
-
+	console.log(req);
 	var myData = req.comment;
 	console.log(req.comment);
 
