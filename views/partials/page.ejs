@@ -89,7 +89,7 @@ var input = $('#commentBox').val();
 		        
 		        $.ajax({
 		        	type: "POST",
-		        	url: '/comments',
+		        	url: '/comments/'+mongoDB,
 		        	data: { input }
 
 		        });
