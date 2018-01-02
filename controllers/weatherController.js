@@ -25,17 +25,24 @@ function displayWeather(req, response) {
 
 function saveComments(req,response) {
 	console.log(req.body.comment);
-	var myData = req.comment;
-	console.log(req.comment);
+	
 
-	function writeData(myData) {
-	mongoDB.collection('weathers').insert(myData, function(error, record) {
-		if (error) throw error;
-		console.log("data saved");
+	Weather.find({}, function(err, weather) {
+		var myData = req.body.comment;
+		weather.comments.push(myData);
+		console.log(weather.comments);
+		weather.save();
+		console.log(weather);
 	});
-	}	
+	
+
+	//function writeData(myData) {
+	//mongoDB.collection('weathers').insert(myData, function(error, record) {
+	//	if (error) throw error;
+	//	console.log("data saved");
+	//});
+	//}	
 	console.log("save comments firing");
-	response.send("middle ware hit");
 
 		
 }
