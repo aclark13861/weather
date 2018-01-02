@@ -34,6 +34,7 @@ function saveComments(req,response) {
 		console.log("data saved");
 	});
 	}	
+	console.log("save comments firing");
 	response.send("middle ware hit");
 
 		
