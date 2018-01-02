@@ -26,25 +26,30 @@ function displayWeather(req, response) {
 function saveComments(req,response) {
 	console.log(req.body.comment);
 	
-
-	Weather.find({}, function(err, weather) {
-		var myData = req.body.comment;
-		weather.comments.push(myData);
-		console.log(weather.comments);
-		weather.save();
-		console.log(weather);
-	});
-	
-
-	//function writeData(myData) {
+	//function writeData (data) {
+	//	
 	//mongoDB.collection('weathers').insert(myData, function(error, record) {
 	//	if (error) throw error;
 	//	console.log("data saved");
 	//});
+	//}
+	
+
+	mongoDB.find({}, function(err, weathers) {
+		var myData = req.body.comment;
+		weathers.comments.push(myData);
+		console.log(weathers.comments);
+		
+		
+	});
+	
+
+	//function writeData(myData) {
+	
 	//}	
 	console.log("save comments firing");
 
-	response.render(json);
+	response.send("saved to db");
 
 		
 }
