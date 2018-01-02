@@ -52,7 +52,7 @@
 
 var mongoDB = 'https://heroku_sz82z631:f16s2jen6rmoltuqm5ntv4m66c@ds135747.mlab.com:35747/heroku_sz82z631';
 
-var input = $('#commentBox');
+var input = $('#commentBox').val();
 
 	$(document).ready(function() {
 
@@ -92,10 +92,8 @@ var input = $('#commentBox');
 		        	url: '/comments',
 		        	data: { input }
 
-		        })
-		        .done(function(msg) {
-		        	console.log("data saved" + msg);
 		        });
+		        
 
 		        return false;
 		          
