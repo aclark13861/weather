@@ -24,16 +24,10 @@ function displayWeather(req, response) {
 }
 
 function saveComments(req,response) {
-	Weather.find({}, function(err, weather) {
-		let comment = JSON.parse(req.body);
-		let newComment = req.body;
-		console.log(comment);
-
-		weather.comments.push(comment);
-		weather.save();
-		console.log(weather);
+	mongoDB.collection('weathers').insert(data, function(error, record) {
+		if (error) throw error;
+		console.log("data saved");
 	});
-	response.send('Middle ware hit');
 }
 
 
