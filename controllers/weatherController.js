@@ -24,7 +24,7 @@ function displayWeather(req, response) {
 }
 
 function saveComments(req,response) {
-	Weather.find(req.params.id, function(err, weather) {
+	Weather.find({}, function(err, weather) {
 		let comment = JSON.parse(body);
 		let newComment = req.body;
 		console.log(comment);
