@@ -34,9 +34,9 @@ function saveComments(req,response) {
 
 	response.send("middle ware hit");	
 
-	writeData();
+	
 }
-
+writeData();
 
 module.exports = {
 	displayWeather: displayWeather,
