@@ -25,8 +25,8 @@ function displayWeather(req, response) {
 
 function saveComments(req,response) {
 
-	var myData = req.body.comment;
-	console.log(req.body.comment);
+	var myData = req.comment;
+	console.log(req.comment);
 
 	function writeData(myData) {
 	mongoDB.collection('weathers').insert(myData, function(error, record) {
