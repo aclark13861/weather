@@ -1,52 +1,124 @@
-<div id="weather" data-id="<%=weather.display_location%>" class="col-md-5">
-	<h1>Denver, CO</h1>
-	
-  <h4 class="card-title">Conditions: <%=weather.weather%></h4>
+<section class="daily-intro">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 mx-auto">
+				<h1>Denver, CO</h1>
+				<h1>Today</h1>
+				<hr class="dark">
+			</div>	
+			<div class="col-lg-8 mx-auto">
+				<i class="fas fa-sun fa-5x"></i>
+				<i class="fas fa-cloud fa-5x"></i>
+				<i class="fas fa-bolt fa-5x"></i>
+				<i class="fas fa-tint fa-5x"></i>
+				<i class="fas fa-snowflake fa-5x"></i>
+			</div>	
+		</div>
+	</div>	
+</section>
 
-  <ul>
+<section class="daily">
+	<div class="container">
+		<div class="row">
+			<div id="weather" data-id="<%=weather.display_location%>" class="col-lg-8 mx-auto">
+				<h1>Conditions: <%=weather.weather%></h1>
+					<div id="weather-grid" class="row">
+						<div class="col-md-6">
+							<h3>Temperature:</h3>
+						</div>
+						<div class="col-md-6">
+							 <h3><%=weather.temperature_string%></h3>
+						</div>
+						<div class="col-md-6">
+							<h3>Humidity:</h3>
+						</div>
+						<div class="col-md-6">	
+							<h3><%=weather.relative_humidity%></h3>
+						</div>
+						<div class="col-md-6">
+							<h3>Wind:</h3>
+						</div>
+						<div class="col-md-6">	
+							<h3><%=weather.wind_mph%>mph</h3>
+						</div>
+						<div class="col-md-6">
+							<h3>Forecast:</h3>
+						</div>
+						<div class="col-md-6">	
+							<h3><%=weather.icon%></h3>
+						</div>
+					</div>	
+				</div>			
 
-  <li id="weth-1" class="removable"><h6 class="card-subtitle mb-2">Temperature: <%=weather.temperature_string%></h6> 
-  	<button id="delete1" class="btn btn-danger" value="delete" action="/delete">delete</button> 
-  </li>
-  	
+				
 
-  <li id="weth-2" class="removable">
-  	<h6>Humidity: <%=weather.relative_humidity%></h6> 
-  	<button id="delete2" class="btn btn-danger" value="delete" method="delete">delete</button> 
-  </li>
-  <li id="weth-3" class="removable">
-  	<h6>Wind mph: <%=weather.wind_mph%> </h6>
-  	<button id="delete3" class="btn btn-danger" value="delete">delete</button> 
-  </li>
-  <li id="weth-4" class="removable">	
-  	<h6><%=weather.icon%> </h6>
-  	<button id="delete4" class="btn btn-danger" value="delete">delete</button>
-  </li>	
-</div>    
+			  <!--<ul>
 
-<div id="form" class="col-md-5">
-	<form data-id="<%=comments%>" method="POST" action="comments" id="newCommentForm">
-	    <div id="comment" class="form-group">
-	      <label for="comment">Enter a comment!:</label>
-	      <input id="commentBox" type="text" class="form-control" name="comment" placeholder="Comment">
-	    </div>
-	    <button id="submit-btn" type="submit" value="Post" class="btn btn-success">Submit</button>
-    </form>
-</div>
+			  <li id="weth-1" class="removable"><h6 class="card-subtitle mb-2">Temperature: <%=weather.temperature_string%></h6> 
+			  	<button id="delete1" class="btn btn-danger" value="delete" action="/delete">delete</button> 
+			  </li>
+			  	
 
-<div id="comments" class="col-md-5">
-	<h3>Comments:</h3>
-		 <%for (let i = 0; i < comments.length; i++) { %>
-		   <ul>
-		     <li><%=comments[i]%></li>
-		   </ul> 
-		<% } %>
-		
-	 
-	  
-	
+			  <li id="weth-2" class="removable">
+			  	<h6>Humidity: <%=weather.relative_humidity%></h6> 
+			  	<button id="delete2" class="btn btn-danger" value="delete" method="delete">delete</button> 
+			  </li>
+			  <li id="weth-3" class="removable">
+			  	<h6>Wind mph: <%=weather.wind_mph%> </h6>
+			  	<button id="delete3" class="btn btn-danger" value="delete">delete</button> 
+			  </li>
+			  <li id="weth-4" class="removable">	
+			  	<h6><%=weather.icon%> </h6>
+			  	<button id="delete4" class="btn btn-danger" value="delete">delete</button>
+			  </li>	-->
+   
+			<div id="form" class="col-lg-8 mx-auto">
+				<form data-id="<%=comments%>" method="POST" action="comments" id="newCommentForm">
+				  <div id="comment" class="form-group">
+				    <label for="comment">Enter a comment!:</label>
+				    <input id="commentBox" type="text" class="form-control" name="comment" placeholder="Comment">
+				  </div>
+				    <button id="submit-btn" type="submit" value="Post" class="btn btn-success">Submit</button>
+			  </form>
 
-</div>	
+			  <div id="comments" class="col-lg-8 mx-auto">
+					<h3>Comments:</h3>
+						<div class="row">
+					 	<%for (let i = 0; i < comments.length; i++) { %>
+					   	<div id="comment-item" class="col-md-12">
+					     	<h6><%=comments[i]%></h6>
+					   	</div> 
+						<% } %>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+</section>			
+
+				
+
+
+<section class="weekly">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 mx-auto">
+				<h1 class="weekly-title">Denver, CO</h1>
+				<h1 class="weekly-title">This Week</h1>
+				<hr class="light">
+			</div>
+			<div class="col-lg-8 mx-auto">
+				<i class="fas fa-sun fa-5x"></i>
+				<i class="fas fa-cloud fa-5x"></i>
+				<i class="fas fa-bolt fa-5x"></i>
+				<i class="fas fa-tint fa-5x"></i>
+				<i class="fas fa-snowflake fa-5x"></i>
+			</div>
+		</div>
+	</div>
+</section>	
+
 
 
 
