@@ -8,23 +8,26 @@ mongoose.connect(mongoDB, {
 
 let Weather = require('../models/weather');
 
+
+
 function displayWeather(req, response) {
 	// console.log(req.token);
 	Weather.find({}, function(err, docs) {
-		console.log(docs[0].comments);
+		
 			
 		var comments = (docs[0].comments);
-		console.log(comments);
+		
 
 		let options = {
 			url: "http://api.wunderground.com/api/e1d4afd4ba6ea0d5/conditions/q/CO/Denver.json",
 			headers: {Authorization: "Bearer " + req.token}
 		};
-		request(options, function(err, res ,body) {
+		request(options, function(err, res, body) {
 			if(err) {console.log("ERROR: " + err);}
 			let bod = JSON.parse(body);
 			let weather = bod.current_observation;
 			response.render('index', { weather, comments});
+			console.log( weather );
 		});
 	});
 
@@ -35,16 +38,9 @@ function saveComments(req, response) {
 	var myData = req.body.comment;
 
 	Weather.find({}, function(err, docs) {
-		console.log(docs[0]);
-		console.log(docs[0].comments);
-		console.log(docs[0].weather);
 		docs[0].comments.push(myData);
 		docs[0].save();
-		console.log(docs[0].comments);
-		console.log(docs[0]);
-			
 		var comments = (docs[0].comments);
-		console.log(comments);
 
 		let options = {
 			url: "http://api.wunderground.com/api/e1d4afd4ba6ea0d5/conditions/q/CO/Denver.json",
@@ -55,7 +51,10 @@ function saveComments(req, response) {
 			let bod = JSON.parse(body);
 			let weather = bod.current_observation;
 			response.render('index', { weather, comments});
+			console.log( weather );
 		});
+
+
 	});
 
 

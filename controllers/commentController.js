@@ -12,14 +12,8 @@ function saveComments(req, response) {
 	var myData = req.body.comment;
 
 	Weather.find({}, function(err, docs) {
-		console.log(docs[0]);
-		console.log(docs[0].comments);
-		console.log(docs[0].weather);
 		docs[0].comments.push(myData);
 		docs[0].save();
-		console.log(docs[0].comments);
-		console.log(docs);
-		
 	});
 	response.send('middle ware hit');
 

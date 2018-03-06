@@ -21,7 +21,8 @@
 	<div class="container">
 		<div class="row">
 			<div id="weather" data-id="<%=weather.display_location%>" class="col-lg-8 mx-auto">
-				<h1>Conditions: <%=weather.weather%></h1>
+				<h1><%=weather.observation_time%></h1>
+				<h2>Conditions: <%=weather.weather%><img id="weather-gif" src="<%=weather.icon_url%>"></h2>
 					<div id="weather-grid" class="row">
 						<div class="col-md-6">
 							<h3>Temperature:</h3>
@@ -29,6 +30,12 @@
 						<div class="col-md-6">
 							 <h3><%=weather.temperature_string%></h3>
 						</div>
+						<div class="col-md-6">
+							<h3>Feels Like:</h3>
+						</div>
+						<div class="col-md-6">
+							<h3><%=weather.feelslike_string%></h3>	
+						</div>	
 						<div class="col-md-6">
 							<h3>Humidity:</h3>
 						</div>
@@ -42,12 +49,37 @@
 							<h3><%=weather.wind_mph%>mph</h3>
 						</div>
 						<div class="col-md-6">
-							<h3>Forecast:</h3>
+							<h3>Wind Chill:</h3>
 						</div>
 						<div class="col-md-6">	
-							<h3><%=weather.icon%></h3>
+							<h3><%=weather.windchill_string%></h3>
+						</div>	
+						<div class="col-md-6">
+							<h3>Visibility:</h3>
 						</div>
-					</div>	
+						<div class="col-md-6">	
+							<h3><%=weather.visibility_mi%> mi.</h3>
+						</div>
+					</div>
+					<div id="precip-title" class="row">
+						<div class="col-lg-8 mx-auto">
+							<h2>Precipitation:</h2>
+						</div>
+					</div>
+					<div id="precip" class="row">
+						<div class="col-md-6">
+							<h3>1 Hour:</h3>
+						</div>
+						<div class="col-md-6">
+							<h3><%=weather.precip_1hr_string%></h3>
+						</div>
+						<div class="col-md-6">
+							<h3>Today:</h3>
+						</div>
+						<div class="col-md-6">	
+							<h3><%=weather.precip_today_string%></h3>
+						</div>
+					</div>					
 				</div>			
 
 				
@@ -72,7 +104,7 @@
 			  	<button id="delete4" class="btn btn-danger" value="delete">delete</button>
 			  </li>	-->
    
-			<div id="form" class="col-lg-8 mx-auto">
+			<!--<div id="form" class="col-lg-8 mx-auto">
 				<form data-id="<%=comments%>" method="POST" action="comments" id="newCommentForm">
 				  <div id="comment" class="form-group">
 				    <label for="comment">Enter a comment!:</label>
@@ -90,17 +122,14 @@
 					   	</div> 
 						<% } %>
 				</div>
-			</div>
+			</div>-->
 
 
 		</div>
 	</div>
 </section>			
 
-				
-
-
-<section class="weekly">
+<section class="weekly-intro">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-8 mx-auto">
@@ -109,15 +138,25 @@
 				<hr class="light">
 			</div>
 			<div class="col-lg-8 mx-auto">
-				<i class="fas fa-sun fa-5x"></i>
-				<i class="fas fa-cloud fa-5x"></i>
-				<i class="fas fa-bolt fa-5x"></i>
-				<i class="fas fa-tint fa-5x"></i>
-				<i class="fas fa-snowflake fa-5x"></i>
+				<i class="fas fa-sun fa-5x" style="color:white"></i>
+				<i class="fas fa-cloud fa-5x" style="color:white"></i>
+				<i class="fas fa-bolt fa-5x" style="color:white"></i>
+				<i class="fas fa-tint fa-5x" style="color:white"></i>
+				<i class="fas fa-snowflake fa-5x" style="color:white"></i>
 			</div>
 		</div>
 	</div>
 </section>	
+
+<section class="weekly">
+	<div class="container">
+		<div class="row">
+			<div id="weekly-weather" class="col-lg-8 mx-auto">
+				<h1><%=weather.observation_time%></h1>
+			</div>
+		</div>
+	</div>
+</section>				
 
 
 
